@@ -1,3 +1,16 @@
+<?php
+	$user = $_POST["inputUser"];
+	$password = $_POST["inputPassword"];
+	if (!$user == "" && !$password == "" ) {
+		if ($user == "admin" && $password == "1234") {
+			echo '<p>usuario y contraseña correcta</p>';	
+		}else{
+			echo '<p>usuario y contraseña erronea</p>';
+		}
+	}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,19 +24,23 @@
 	<link rel="stylesheet" href="stylesheets/styles.css">
   </head>
 
-  <body>	
+  <body>
+
+
+
+
 	<div class="container login-form">
 		<h2 class="login-title">- Ingreso al Sistema -</h2>
 		<div class="panel panel-default">
 			<div class="panel-body">
-				<form>
+				<form method="post" action="login.php">
 					<div class="input-group login-userinput">
 						<span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-						<input type="text" class="form-control" placeholder="Usuario">
+						<input type="text" class="form-control" id="inputUser" name="inputUser" placeholder="Usuario">
 					</div>
 					<div class="input-group">
 						<span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-						<input type="password" class="form-control" placeholder="Contraseña">
+						<input type="password" class="form-control" id="inputPassword" name="inputPassword" placeholder="Contraseña">
 						<span id="showPassword" class="input-group-btn">
 	            			<button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
 	          			</span>  

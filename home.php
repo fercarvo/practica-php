@@ -70,7 +70,7 @@
     <div class="modal fade" id="modalDonaciones" tabindex="-1" role="dialog">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <form>
+          <form method="post" action="connection.php">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title">Ingresar Donación</h4>

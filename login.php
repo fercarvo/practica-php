@@ -3,9 +3,7 @@
 	$password = $_POST["inputPassword"];
 	if (!$user == "" && !$password == "" ) {
 		if ($user == "admin" && $password == "1234") {
-			echo '<p>usuario y contraseña correcta</p>';	
-		}else{
-			echo '<p>usuario y contraseña erronea</p>';
+			header("location: home.php");	
 		}
 	}
 ?>

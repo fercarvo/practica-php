@@ -12,6 +12,9 @@
   </head>
 
   <body>
+
+
+
     <nav class="navbar navbar-inverse navbar-static-top">
       <div class="container">
         <div class="navbar-header">
@@ -25,7 +28,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#about"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><?php echo $_SESSION["username"] ?></a></li>
+            <li><a href="#about"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></li>
             <li><a href="logout.php">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -36,6 +39,7 @@
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDonaciones">Agregar Donación</button>
       <table class="table table-bordered table-striped">
         <thead>
+          
           <tr>
             <th>#</th>
             <th>Nombre</th>
@@ -44,6 +48,29 @@
           </tr>
         </thead>
         <tbody>
+          <?php
+
+            $servername = "localhost";
+            $username = "admin";
+            $password = "1991";
+            $dbname = "practica_php";
+
+            $conn = new mysqli($servername, $username, $password, $dbname);
+
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT numero, nombre, apellido, donacion FROM donaciones";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr> <th scope='row'>" . $row['numero']. "</th><td>" . $row['nombre']. "</td><td>" . $row['apellido']. "</td><td>" .$row['donacion']. "</td></tr>";
+                }
+            }
+            $conn->close();
+          ?>
           <tr>
             <th scope="row">1</th>
             <td>Juan</td>
